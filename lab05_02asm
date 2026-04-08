@@ -1,0 +1,34 @@
+.data 
+      msg1: .asciz "The sum of"
+      msg2: .asciz "and"
+      msg3: .asciz "is:"
+.text
+tong_2_thanh_ghi:
+      addi s0, zero, 4   #Khoi tao s0
+      addi s1, zero, 5   #Khoi tao s1
+      add  t0, s0, s1    #t0 = s0 + s1
+      
+      li a7, 4
+      la a0, msg1
+      ecall              #In ra The sum of
+      
+      li a7, 1
+      mv a0, s0
+      ecall              #In ra gia tri s0
+      
+      li a7, 4
+      la a0, msg2
+      ecall              #In ra and
+      
+      li a7, 1
+      mv a0, s1
+      ecall              #In ra gia tri s1
+      
+      li a7, 4
+      la a0, msg3
+      ecall              #In ra is: 
+      
+      li a7, 1
+      mv a0, t0
+      ecall              #In ra tong 2 thanh ghi
+      
